@@ -1,0 +1,431 @@
+Setting CHPL_HOME to /work/diehlpk/chapel-system-20
+Updating PATH to include /work/diehlpk/chapel-system-20/bin/linux64-riscv64
+                     and /work/diehlpk/chapel-system-20/util
+Updating MANPATH to include /work/diehlpk/chapel-system-20/man
+/bin/sh: line 1: rocm_agent_enumerator: command not found
+
+ ### creating directories ### 
+
+mkdir -p ./libs
+mkdir -p ./bin
+
+ ### Building Chapel Queens single-locale CPU... ### 
+
+chpl  -s avoidMirrored=true -M ./modules --fast --no-bounds-checks queens_CPU_single_node.chpl -o  ./bin/queens_mcore.out
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+/usr/bin/ld: /work/diehlpk/chapel-system-20/lib/linux64/llvm/riscv64/cpu-sifive-u74/loc-flat/comm-none/tasks-qthreads/tmr-generic/unwind-system/mem-mimalloc/atomics-cstdlib/hwloc-bundled/pci-disable/re2-bundled/fs-none/lib_pic-none/san-none/libchpl-static.a(debugger.o): unsupported relocation type 0x3d
+
+ ### Queens-Single Locale -- Compilation done ### 
+#### Number of compilations:  1162 ####
+********** No SMT
+
+--- N-QUEENS - Bitset-based data structure --- 
+	 Size: 19
+--- N-Queens mcore search --- 
+
+
+N-Queens for size: 19
+
+CHPL Task layer: qthreads
+	Num created tasks: 64
+	Max num tasks: 64
+	Scheduler: dynamic
+	Local Chunk size: 1
+
+Initial depth: 5
+Number of subproblems found (pool size): 232174
+
+
+### Multicore N-Queens - dynamic ###
+	Problem size (N): 19
+	Cutoff depth: 5
+	Initial number of prefixes: 232174
+
+	Initial tree size: 258274
+	Parallel tree size: 228485522213
+	Final tree size: 228485780487
+
+	Number of solutions found: 4968057848
+
+
+Elapsed time (s): 49.286
+	Performance: 4635942740.637 (nodes/s)
+	Performance: 50400579.998 (solutions/s)
+
+
+--- N-QUEENS - Bitset-based data structure --- 
+	 Size: 19
+--- N-Queens mcore search --- 
+
+
+N-Queens for size: 19
+
+CHPL Task layer: qthreads
+	Num created tasks: 64
+	Max num tasks: 64
+	Scheduler: dynamic
+	Local Chunk size: 1
+
+Initial depth: 5
+Number of subproblems found (pool size): 232174
+
+
+### Multicore N-Queens - dynamic ###
+	Problem size (N): 19
+	Cutoff depth: 5
+	Initial number of prefixes: 232174
+
+	Initial tree size: 258274
+	Parallel tree size: 228485522213
+	Final tree size: 228485780487
+
+	Number of solutions found: 4968057848
+
+
+Elapsed time (s): 49.276
+	Performance: 4636866713.485 (nodes/s)
+	Performance: 50410625.153 (solutions/s)
+
+
+--- N-QUEENS - Bitset-based data structure --- 
+	 Size: 19
+--- N-Queens mcore search --- 
+
+
+N-Queens for size: 19
+
+CHPL Task layer: qthreads
+	Num created tasks: 64
+	Max num tasks: 64
+	Scheduler: dynamic
+	Local Chunk size: 1
+
+Initial depth: 5
+Number of subproblems found (pool size): 232174
+
+
+### Multicore N-Queens - dynamic ###
+	Problem size (N): 19
+	Cutoff depth: 5
+	Initial number of prefixes: 232174
+
+	Initial tree size: 258274
+	Parallel tree size: 228485522213
+	Final tree size: 228485780487
+
+	Number of solutions found: 4968057848
+
+
+Elapsed time (s): 49.281
+	Performance: 4636415641.529 (nodes/s)
+	Performance: 50405721.234 (solutions/s)
+
+
+--- N-QUEENS - Bitset-based data structure --- 
+	 Size: 19
+--- N-Queens mcore search --- 
+
+
+N-Queens for size: 19
+
+CHPL Task layer: qthreads
+	Num created tasks: 64
+	Max num tasks: 64
+	Scheduler: dynamic
+	Local Chunk size: 1
+
+Initial depth: 5
+Number of subproblems found (pool size): 232174
+
+
+### Multicore N-Queens - dynamic ###
+	Problem size (N): 19
+	Cutoff depth: 5
+	Initial number of prefixes: 232174
+
+	Initial tree size: 258274
+	Parallel tree size: 228485522213
+	Final tree size: 228485780487
+
+	Number of solutions found: 4968057848
+
+
+Elapsed time (s): 49.278
+	Performance: 4636703079.200 (nodes/s)
+	Performance: 50408846.171 (solutions/s)
+
+
+--- N-QUEENS - Bitset-based data structure --- 
+	 Size: 19
+--- N-Queens mcore search --- 
+
+
+N-Queens for size: 19
+
+CHPL Task layer: qthreads
+	Num created tasks: 64
+	Max num tasks: 64
+	Scheduler: dynamic
+	Local Chunk size: 1
+
+Initial depth: 5
+Number of subproblems found (pool size): 232174
+
+
+### Multicore N-Queens - dynamic ###
+	Problem size (N): 19
+	Cutoff depth: 5
+	Initial number of prefixes: 232174
+
+	Initial tree size: 258274
+	Parallel tree size: 228485522213
+	Final tree size: 228485780487
+
+	Number of solutions found: 4968057848
+
+
+Elapsed time (s): 49.275
+	Performance: 4636974178.280 (nodes/s)
+	Performance: 50411793.479 (solutions/s)
+
+
+--- N-QUEENS - Bitset-based data structure --- 
+	 Size: 19
+--- N-Queens mcore search --- 
+
+
+N-Queens for size: 19
+
+CHPL Task layer: qthreads
+	Num created tasks: 64
+	Max num tasks: 64
+	Scheduler: dynamic
+	Local Chunk size: 1
+
+Initial depth: 5
+Number of subproblems found (pool size): 232174
+
+
+### Multicore N-Queens - dynamic ###
+	Problem size (N): 19
+	Cutoff depth: 5
+	Initial number of prefixes: 232174
+
+	Initial tree size: 258274
+	Parallel tree size: 228485522213
+	Final tree size: 228485780487
+
+	Number of solutions found: 4968057848
+
+
+Elapsed time (s): 49.284
+	Performance: 4636134730.341 (nodes/s)
+	Performance: 50402667.252 (solutions/s)
+
+
+--- N-QUEENS - Bitset-based data structure --- 
+	 Size: 19
+--- N-Queens mcore search --- 
+
+
+N-Queens for size: 19
+
+CHPL Task layer: qthreads
+	Num created tasks: 64
+	Max num tasks: 64
+	Scheduler: dynamic
+	Local Chunk size: 1
+
+Initial depth: 5
+Number of subproblems found (pool size): 232174
+
+
+### Multicore N-Queens - dynamic ###
+	Problem size (N): 19
+	Cutoff depth: 5
+	Initial number of prefixes: 232174
+
+	Initial tree size: 258274
+	Parallel tree size: 228485522213
+	Final tree size: 228485780487
+
+	Number of solutions found: 4968057848
+
+
+Elapsed time (s): 49.282
+	Performance: 4636308108.543 (nodes/s)
+	Performance: 50404552.168 (solutions/s)
+
+
+--- N-QUEENS - Bitset-based data structure --- 
+	 Size: 19
+--- N-Queens mcore search --- 
+
+
+N-Queens for size: 19
+
+CHPL Task layer: qthreads
+	Num created tasks: 64
+	Max num tasks: 64
+	Scheduler: dynamic
+	Local Chunk size: 1
+
+Initial depth: 5
+Number of subproblems found (pool size): 232174
+
+
+### Multicore N-Queens - dynamic ###
+	Problem size (N): 19
+	Cutoff depth: 5
+	Initial number of prefixes: 232174
+
+	Initial tree size: 258274
+	Parallel tree size: 228485522213
+	Final tree size: 228485780487
+
+	Number of solutions found: 4968057848
+
+
+Elapsed time (s): 49.283
+	Performance: 4636177909.049 (nodes/s)
+	Performance: 50403136.678 (solutions/s)
+
+
+--- N-QUEENS - Bitset-based data structure --- 
+	 Size: 19
+--- N-Queens mcore search --- 
+
+
+N-Queens for size: 19
+
+CHPL Task layer: qthreads
+	Num created tasks: 64
+	Max num tasks: 64
+	Scheduler: dynamic
+	Local Chunk size: 1
+
+Initial depth: 5
+Number of subproblems found (pool size): 232174
+
+
+### Multicore N-Queens - dynamic ###
+	Problem size (N): 19
+	Cutoff depth: 5
+	Initial number of prefixes: 232174
+
+	Initial tree size: 258274
+	Parallel tree size: 228485522213
+	Final tree size: 228485780487
+
+	Number of solutions found: 4968057848
+
+
+Elapsed time (s): 49.284
+	Performance: 4636066154.045 (nodes/s)
+	Performance: 50401921.711 (solutions/s)
+
+
+--- N-QUEENS - Bitset-based data structure --- 
+	 Size: 19
+--- N-Queens mcore search --- 
+
+
+N-Queens for size: 19
+
+CHPL Task layer: qthreads
+	Num created tasks: 64
+	Max num tasks: 64
+	Scheduler: dynamic
+	Local Chunk size: 1
+
+Initial depth: 5
+Number of subproblems found (pool size): 232174
+
+
+### Multicore N-Queens - dynamic ###
+	Problem size (N): 19
+	Cutoff depth: 5
+	Initial number of prefixes: 232174
+
+	Initial tree size: 258274
+	Parallel tree size: 228485522213
+	Final tree size: 228485780487
+
+	Number of solutions found: 4968057848
+
+
+Elapsed time (s): 49.286
+	Performance: 4635949136.902 (nodes/s)
+	Performance: 50400649.536 (solutions/s)
+
