@@ -1,7 +1,9 @@
 from collections import OrderedDict
 import statistics
 
-available_arches = ['MILK-V', 'p550', 'grace', 'zen3', 'graniterapids', 'icelake']
+available_arches = ['MILK-V', 'p550', 'grace', 'zen3', 'graniterapids', 'icelake', ]#'qemu']
+
+shortened_folder_arches = ['MILK-V', 'p550', ]# 'qemu']
 
 numa_only_arches = ['grace']
 smt_only_arches = []
@@ -14,7 +16,8 @@ arch_names = {
     'icelake' : 'Ice Lake',
     'zen3' : 'Zen 3',
     'graniterapids' : 'Granite Rapids',
-    'grace' : 'Grace'}
+    'grace' : 'Grace',
+    'qemu' : 'QEMU'}
 
 # Map the inconsistent file names to something more consistent
 # and suitable for being displayed in a paper table.
@@ -164,7 +167,7 @@ def generate_table_for_group(group, arches = available_arches, llvmver = 21):
     for datfile in datfiles:
         entries = []
         for arch in arches:
-            if arch in ['MILK-V', 'p550']:
+            if arch in shortened_folder_arches:
                 entries.append(aggregate_runs("{}/llvm{}/{}".format(arch, llvmver, datfile)))
             else:
                 entries.append(aggregate_runs('{}/llvm{}/clbg_comparison/{}'.format(arch, llvmver, datfile)))
