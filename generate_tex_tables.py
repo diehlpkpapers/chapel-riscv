@@ -1,11 +1,21 @@
 from collections import OrderedDict
+#from datetime import datetime, timezone
 import functools
+#import os
 import os.path
 import statistics
 
-available_arches = ['MILK-V', 'p550', 'grace', 'zen3', 'graniterapids', 'icelake', ]#'qemu']
+include_qemu = False
 
-shortened_folder_arches = ['MILK-V', 'p550', ]# 'qemu']
+available_arches = ['MILK-V', 'p550', 'grace', 'zen3', 'graniterapids', 'icelake']
+
+shortened_folder_arches = ['MILK-V', 'p550']
+
+# We ended up excluding QEMU from the graphs in the paper since
+# the performance numbers weren't terribly informative.
+if include_qemu:
+    available_arches.append('qemu')
+    shortened_folder_arches.append('qemu')
 
 numa_only_arches = ['grace']
 smt_only_arches = []
