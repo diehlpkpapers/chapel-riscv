@@ -1,4 +1,6 @@
 from collections import OrderedDict
+import functools
+import os.path
 import statistics
 
 available_arches = ['MILK-V', 'p550', 'grace', 'zen3', 'graniterapids', 'icelake', ]#'qemu']
@@ -111,7 +113,15 @@ benchmark_groups = OrderedDict([
     ('no-op', ('no-op',)),
     ('synchronization', ('chameneos-redux', 'thread-ring'))])
 
-def aggregate_runs(full_fname, method = 'mean', na_default = 'n/a'):
+@functools.cache
+def get_startup_cost(directory, method = 'mean'):
+    datfile = os.path.join(directory, 'no-op.dat')
+    val = aggregate_runs_fp(datfile, method, None)
+    if val is None:
+        raise ValueError('no-op data not found')
+    return val
+
+def aggregate_runs_fp(full_fname, method = 'mean', na_default = 'n/a'):
     if method == 'mean':
         aggregate = statistics.mean
     elif method == 'median':
@@ -126,7 +136,15 @@ def aggregate_runs(full_fname, method = 'mean', na_default = 'n/a'):
     except FileNotFoundError:
         return na_default
     agg = aggregate(vals)
-    return '{:.2f}'.format(agg)
+    if 'no-op.dat' not in full_fname:
+        agg -= get_startup_cost(os.path.dirname(full_fname), method)
+    return agg
+
+def aggregate_runs(full_fname, method = 'mean', na_default = 'n/a'):
+    val = aggregate_runs_fp(full_fname, method, na_default)
+    if val == na_default:
+        return na_default
+    return '{:.2f}'.format(val)
 
 def aggregate_chop_runs(full_fname, method = 'mean', na_default = 'n/a'):
     if method == 'mean':
@@ -138,10 +156,14 @@ def aggregate_chop_runs(full_fname, method = 'mean', na_default = 'n/a'):
     try:
         with open(full_fname) as f:
             vals = [float(line.split()[-1]) for line in f.readlines() if line.startswith('Elapsed time (s): ')]
-            if len(vals) < 10:
+            if len(vals) < 8:
                 return na_default
     except FileNotFoundError:
         return na_default
+    if len(vals) == 20:
+        vals = vals[:10]
+    if len(vals) == 40:
+        vals = vals[:10]
     agg = aggregate(vals)
     return '{:.2f}'.format(agg)
 
