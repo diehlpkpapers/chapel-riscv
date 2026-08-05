@@ -7,9 +7,10 @@ import statistics
 
 include_qemu = False
 
-available_arches = ['MILK-V', 'p550', 'grace', 'zen3', 'graniterapids', 'icelake']
+available_arches = ['MILK-V', 'p550', 'u74', 'grace', 'zen3', 'graniterapids', 'icelake']
 
-shortened_folder_arches = ['MILK-V', 'p550']
+# these are also the arches with no NUMA and no SMT
+shortened_folder_arches = ['MILK-V', 'p550', 'u74']
 
 # We ended up excluding QEMU from the graphs in the paper since
 # the performance numbers weren't terribly informative.
@@ -25,6 +26,7 @@ numa_or_smt_arches = numa_only_arches + smt_only_arches + numa_and_smt_arches
 arch_names = {
     'MILK-V' : 'SG2042',
     'p550' : 'P550',
+    'u74' : 'Unmatched',
     'icelake' : 'Ice Lake',
     'zen3' : 'Zen 3',
     'graniterapids' : 'Granite Rapids',
@@ -153,6 +155,8 @@ def generate_mock_chop_dat_files():
             if not os.path.isdir(dirname):
                 continue
             fname = os.path.join(dirname, 'ChOp_log.txt')
+            if not os.path.isfile(fname):
+                continue
             date = get_mod_time_as_date(fname)
             with open(fname) as f:
                 vals = [float(line.split()[-1])
