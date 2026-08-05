@@ -41,6 +41,7 @@ display_names = {
     'binarytrees-submitted.dat' : 'Binary Trees',
     'chameneosredux.dat' : 'Chameneos Redux',
     'chameneosredux-fast.dat' : 'Chameneos Redux (2)',
+    'chop.dat' : 'ChOp',
     'fannkuch-redux-submitted.dat' : 'Fannkuch Redux',
     'fasta2.dat' : 'Fasta (2)',
     'fasta6.dat' : 'Fasta (6)',
@@ -76,6 +77,8 @@ benchmark_filenames = OrderedDict([
     ('chameneos-redux',
         ('chameneosredux-fast.dat',
          'chameneosredux.dat')),
+    ('chop',
+        ('chop.dat',)),
     ('fannkuch-redux',
         ('fannkuch-redux-submitted.dat',)),
     ('fasta',
@@ -116,6 +119,7 @@ benchmark_filenames = OrderedDict([
 
 benchmark_groups = OrderedDict([
     ('acces-pattern', ('binarytrees',)),
+    ('chop', ('chop',)),
     ('float', ('mandelbrot', 'nbody', 'spectralnorm')),
     ('gmp', ('pidigits',)),
     ('io', ('fasta', 'knucleotide', 'regexdna-redux', 'revcomp')),
