@@ -1,7 +1,7 @@
 from collections import OrderedDict
-#from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 import functools
-#import os
+import os
 import os.path
 import statistics
 
@@ -122,6 +122,55 @@ benchmark_groups = OrderedDict([
     ('integer', ('fannkuch-redux',)),
     ('no-op', ('no-op',)),
     ('synchronization', ('chameneos-redux', 'thread-ring'))])
+
+def get_mod_time_as_date(fname):
+    stamp = os.stat(fname).st_mtime
+    # Most of these numbers were collected MDT or CDT.
+    cdt = timezone(timedelta(hours=-5))
+    mdt = timezone(timedelta(hours=-6))
+    tz = cdt if 'p550' in fname or 'MILK-V' in fname else mdt
+    date = datetime.fromtimestamp(stamp, tz = tz)
+    date_str = date.strftime('%m/%d/%y')
+    return date_str
+
+def write_mock_chop_dat(fname, vals, date):
+    header = '# Date\treal' + os.linesep
+    lines = [header]
+    for val in vals:
+        lines.append('\t'.join([date, '{:.2f}'.format(val)]) + os.linesep)
+    with open(fname, 'w') as f:
+        f.writelines(lines)
+
+def generate_mock_chop_dat_files():
+    header = '# Date  real'
+    for arch in available_arches:
+        for llvmver in range(20, 23):
+            dirname = os.path.join(arch, 'llvm{}'.format(llvmver))
+            if not os.path.isdir(dirname):
+                continue
+            fname = os.path.join(dirname, 'ChOp_log.txt')
+            date = get_mod_time_as_date(fname)
+            with open(fname) as f:
+                vals = [float(line.split()[-1])
+                        for line in f.readlines()
+                        if line.startswith('Elapsed time (s): ')]
+            if arch in shortened_folder_arches:
+                assert(len(vals) >= 8 and len(vals) <=10)
+                write_mock_chop_dat(os.path.join(dirname, 'chop.dat'), vals, date)
+            elif arch in numa_only_arches:
+                assert(len(vals) == 20)
+                write_mock_chop_dat(os.path.join(dirname, 'clbg_comparison', 'chop.dat'), vals[:10], date)
+                write_mock_chop_dat(os.path.join(dirname, 'clbg_comparison_single_socket', 'chop.dat'), vals[10:], date)
+            elif arch in smt_only_arches:
+                assert(len(vals) == 20)
+                write_mock_chop_dat(os.path.join(dirname, 'clbg_comparison', 'chop.dat'), vals[:10], date)
+                write_mock_chop_dat(os.path.join(dirname, 'clbg_comparison_smt', 'chop.dat'), vals[10:], date)
+            elif arch in numa_and_smt_arches:
+                assert(len(vals) == 40)
+                write_mock_chop_dat(os.path.join(dirname, 'clbg_comparison', 'chop.dat'), vals[:10], date)
+                write_mock_chop_dat(os.path.join(dirname, 'clbg_comparison_smt', 'chop.dat'), vals[10:20], date)
+                write_mock_chop_dat(os.path.join(dirname, 'clbg_comparison_single_socket', 'chop.dat'), vals[20:30], date)
+                write_mock_chop_dat(os.path.join(dirname, 'clbg_comparison_single_socket_smt', 'chop.dat'), vals[30:], date)
 
 @functools.cache
 def get_startup_cost(directory, method = 'mean'):
@@ -279,6 +328,7 @@ def generate_chop_table(arches = available_arches, llvmver = 21):
     return table_template.format(table_format, table_header, table_body)
 
 if __name__ == '__main__':
+    generate_mock_chop_dat_files()
     for group in benchmark_groups:
         print(generate_table_for_group(group))
         print()
