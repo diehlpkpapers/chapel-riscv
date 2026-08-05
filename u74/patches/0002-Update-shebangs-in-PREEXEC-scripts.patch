@@ -1,0 +1,101 @@
+From dd15b6bec685124d397b55b3476086546a5fcb69 Mon Sep 17 00:00:00 2001
+From: Palmer Cox <p@lmercox.com>
+Date: Sat, 1 Aug 2026 02:18:16 +0000
+Subject: [PATCH 2/3] Update shebangs in PREEXEC scripts
+
+We need to do this because we're running the tests on NixOS where /bin/bash doesn't
+exist.
+---
+ test/release/examples/benchmarks/shootout/PREEXEC           | 2 +-
+ test/studies/shootout/k-nucleotide/benmcd/PREEXEC           | 2 +-
+ test/studies/shootout/k-nucleotide/bharshbarg/PREEXEC       | 2 +-
+ test/studies/shootout/k-nucleotide/bradc/PREEXEC            | 2 +-
+ test/studies/shootout/regex-dna/bharshbarg/PREEXEC          | 2 +-
+ test/studies/shootout/reverse-complement/bharshbarg/PREEXEC | 2 +-
+ test/studies/shootout/reverse-complement/bradc/PREEXEC      | 2 +-
+ test/studies/shootout/submitted/PREEXEC                     | 2 +-
+ 8 files changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/test/release/examples/benchmarks/shootout/PREEXEC b/test/release/examples/benchmarks/shootout/PREEXEC
+index 0c653a39ace..e004825ce17 100755
+--- a/test/release/examples/benchmarks/shootout/PREEXEC
++++ b/test/release/examples/benchmarks/shootout/PREEXEC
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/usr/bin/env bash
+ 
+ set -e
+ 
+diff --git a/test/studies/shootout/k-nucleotide/benmcd/PREEXEC b/test/studies/shootout/k-nucleotide/benmcd/PREEXEC
+index 0c653a39ace..e004825ce17 100755
+--- a/test/studies/shootout/k-nucleotide/benmcd/PREEXEC
++++ b/test/studies/shootout/k-nucleotide/benmcd/PREEXEC
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/usr/bin/env bash
+ 
+ set -e
+ 
+diff --git a/test/studies/shootout/k-nucleotide/bharshbarg/PREEXEC b/test/studies/shootout/k-nucleotide/bharshbarg/PREEXEC
+index 0c653a39ace..e004825ce17 100755
+--- a/test/studies/shootout/k-nucleotide/bharshbarg/PREEXEC
++++ b/test/studies/shootout/k-nucleotide/bharshbarg/PREEXEC
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/usr/bin/env bash
+ 
+ set -e
+ 
+diff --git a/test/studies/shootout/k-nucleotide/bradc/PREEXEC b/test/studies/shootout/k-nucleotide/bradc/PREEXEC
+index 0c653a39ace..e004825ce17 100755
+--- a/test/studies/shootout/k-nucleotide/bradc/PREEXEC
++++ b/test/studies/shootout/k-nucleotide/bradc/PREEXEC
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/usr/bin/env bash
+ 
+ set -e
+ 
+diff --git a/test/studies/shootout/regex-dna/bharshbarg/PREEXEC b/test/studies/shootout/regex-dna/bharshbarg/PREEXEC
+index 0c653a39ace..e004825ce17 100755
+--- a/test/studies/shootout/regex-dna/bharshbarg/PREEXEC
++++ b/test/studies/shootout/regex-dna/bharshbarg/PREEXEC
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/usr/bin/env bash
+ 
+ set -e
+ 
+diff --git a/test/studies/shootout/reverse-complement/bharshbarg/PREEXEC b/test/studies/shootout/reverse-complement/bharshbarg/PREEXEC
+index 0c653a39ace..e004825ce17 100755
+--- a/test/studies/shootout/reverse-complement/bharshbarg/PREEXEC
++++ b/test/studies/shootout/reverse-complement/bharshbarg/PREEXEC
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/usr/bin/env bash
+ 
+ set -e
+ 
+diff --git a/test/studies/shootout/reverse-complement/bradc/PREEXEC b/test/studies/shootout/reverse-complement/bradc/PREEXEC
+index 0c653a39ace..e004825ce17 100755
+--- a/test/studies/shootout/reverse-complement/bradc/PREEXEC
++++ b/test/studies/shootout/reverse-complement/bradc/PREEXEC
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/usr/bin/env bash
+ 
+ set -e
+ 
+diff --git a/test/studies/shootout/submitted/PREEXEC b/test/studies/shootout/submitted/PREEXEC
+index 0c653a39ace..e004825ce17 100755
+--- a/test/studies/shootout/submitted/PREEXEC
++++ b/test/studies/shootout/submitted/PREEXEC
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/usr/bin/env bash
+ 
+ set -e
+ 
+-- 
+2.54.0
+
