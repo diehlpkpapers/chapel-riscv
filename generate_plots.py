@@ -335,7 +335,7 @@ for table in mean_subtables.keys():
     alpha=0.9,
     linewidth=2.2,
     markersize=6,
-    title=table,
+    title=group_titles[table],
     savepath=f'plots/{table}.pdf'
 )
 
