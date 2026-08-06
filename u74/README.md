@@ -36,7 +36,7 @@ Chapel commit ef6f51e04354ff39c8fe07f87e708454057104d0. The changes are:
 * Update the shebang lines of some of the PREEXEC scripts to work on NixOS
 * Increase the test timeout
 
-## Procedure
+## Procedure for running the Chapel Tests
 
 1. Build Chapel from an x86_host for a RiscV64 machine (specifically
    targeting the sifive-u74 CPU). From the `nix` directory, run:
@@ -102,5 +102,36 @@ Chapel commit ef6f51e04354ff39c8fe07f87e708454057104d0. The changes are:
 
    ```
    CHPL_LLVM=system ./run.sh
+   ```
+
+## Procedure for running the ChOp test
+
+1. Compile Chapel as above
+
+2. Clone the ChOp repository, commit 2e26c2fb4d3c680c98991128046bdcb1022869f6
+
+3. Copy the benchmark script (ChOp_build_and_bench.sh) from
+   https://github.com/insertinterestingnamehere/chapel-riscv/tree/main commit
+   db1e4c2bd3948d60019d31f04e686f1c8b6e63b9. Make this file executable and
+   place this file in the root of the ChOp directory.
+
+4. Add Chapel to the PATH:
+
+   For LLVM 21:
+
+   ```
+   export PATH=/nix/store/kyj3x68nd6zcdm5i1i6fzxbc8z5601l0-chapel-riscv64-unknown-linux-gnu-2.9.0/bin/:"$PATH"
+   ```
+
+   or, for LLVM 22:
+
+   ```
+   export PATH=/nix/store/bqch2f566kxv1v4sv6v532g6h88b8mn7-chapel-riscv64-unknown-linux-gnu-2.9.0/bin/:"$PATH"
+   ```
+
+5. Run the test:
+
+   ```
+   ./ChOp_build_and_bench.sh
    ```
 
