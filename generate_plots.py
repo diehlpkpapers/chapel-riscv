@@ -1,6 +1,24 @@
 import numpy as np
 import pandas as pd
+import matplotlib
+matplotlib.use('Cairo')
 from matplotlib import pyplot as plt
+plt.style.use('seaborn-v0_8-colorblind')
+# Publication/accessibility-oriented defaults
+plt.rcParams.update({
+    "font.family": "sans-serif",
+    "font.sans-serif": ["Arial", "DejaVu Sans", "Liberation Sans", "Helvetica"],
+    "font.size": 12,
+    "axes.labelsize": 12,
+    "axes.titlesize": 13,
+    "xtick.labelsize": 12,
+    "ytick.labelsize": 12,
+    "legend.fontsize": 12,
+    "legend.title_fontsize": 12,
+    "axes.linewidth": 1.1,
+    "pdf.fonttype": 42,
+    "ps.fonttype": 42,
+})
 import os
 import shutil
 from itertools import cycle
@@ -62,13 +80,18 @@ config_map = {'clbg_comparison':'Two-socket',
 # This is easily modified below
 data_loc = '.'
 new_data_loc = 'cleaned_data'
-archlist = [arch for arch in os.listdir(data_loc) if os.path.isdir(f'{data_loc}/{arch}') and arch != '.git' and arch != new_data_loc]
+archlist = list(arch_map.keys())
+#archlist = [arch for arch in os.listdir(data_loc) if os.path.isdir(f'{data_loc}/{arch}') and arch != '.git' and arch != new_data_loc]
 # For now we only care about one llvm but again, this can be easily turned into a list in the following processing
 llvm = 'llvm21'
 
 # Make the new arch directories and llvm directories in the clean dataset
 if not os.path.exists(new_data_loc):
     os.mkdir(new_data_loc)
+
+plot_out_dir = 'plots'
+if not os.path.exists(plot_out_dir):
+    os.mkdir(plot_out_dir)
 
 for arch in archlist:
     newarch = f'{new_data_loc}/{arch}'
@@ -159,6 +182,17 @@ vbenchmark_filenames = {
     "thread-ring": ["threadring", "thread-ring-coforall-begin"],
 }
 
+group_titles = {
+    'access-pattern': 'Binary Trees',
+    'chop': 'ChOp',
+    'float': 'Floating-Point-Intensive Benchmarks',
+    'gmp': 'Extended-Precision Benchmark',
+    'io': 'IO-Intensive Benchmarks',
+    'integer': 'Integer-Intensive Benchmarks',
+    'no-op': 'Chapel Startup Time',
+    'synchronization' : 'Synchronization-Intensive Benchmarks'
+}
+
 benchmark_groups = {
     'access-pattern': sum((vbenchmark_filenames[name] for name in ['binarytrees']), []),
     'chop': sum((vbenchmark_filenames[name] for name in ['chop']), []),
@@ -233,22 +267,6 @@ def plot_parallel_coordinates_architectures(
     architectures = data.columns.astype(str)
     x = np.arange(len(benchmarks))
 
-    # Publication/accessibility-oriented defaults
-    plt.rcParams.update({
-        "font.family": "sans-serif",
-        "font.sans-serif": ["Arial", "DejaVu Sans", "Liberation Sans", "Helvetica"],
-        "font.size": 12,
-        "axes.labelsize": 12,
-        "axes.titlesize": 13,
-        "xtick.labelsize": 12,
-        "ytick.labelsize": 12,
-        "legend.fontsize": 12,
-        "legend.title_fontsize": 12,
-        "axes.linewidth": 1.1,
-        "pdf.fonttype": 42,
-        "ps.fonttype": 42,
-    })
-
     fig, ax = plt.subplots(figsize=figsize)
 
     # tab10 is generally color-vision-deficiency friendly for up to 10 categories.
@@ -274,10 +292,10 @@ def plot_parallel_coordinates_architectures(
         )
 
     ax.set_xticks(x)
-    ax.set_xticklabels(benchmarks, rotation=45, ha="right")
+    ax.set_xticklabels(benchmarks, rotation=30, ha="right")
 
-    ax.set_xlabel("Benchmark")
-    ax.set_ylabel("Performance speed, log scale")
+    #ax.set_xlabel("Benchmark")
+    ax.set_ylabel("Time (s), Lower is Better")
     ax.set_title(title)
 
     ax.set_yscale("log")
@@ -304,9 +322,10 @@ def plot_parallel_coordinates_architectures(
     plt.tight_layout()
 
     if savepath is not None:
-        plt.savefig(savepath, bbox_inches="tight", dpi=300)
-
-    plt.show()
+        plt.savefig(savepath, bbox_inches="tight")
+        plt.clf()
+    else:
+        plt.show()
 
 # For all the basic tables make a pretty little parallel coordinates plot.
 for table in mean_subtables.keys():
@@ -316,20 +335,21 @@ for table in mean_subtables.keys():
     alpha=0.9,
     linewidth=2.2,
     markersize=6,
-    title=table
+    title=table,
+    savepath=f'plots/{table}.pdf'
 )
 
 linestyles = [
     "solid",
-    "dashdot"
+    "dashdot",
     "dashed",
     "dotted",
     (0, (5, 1)),              # densely dashed
     (0, (3, 5, 1, 5)),        # dash-dot with wider spacing
     (0, (3, 1, 1, 1, 1, 1)),  # dash-dot-dot
 ]
-#plt.style.use('default')
-plt.style.use('seaborn-v0_8-colorblind')
+
+config_list = ['clbg_comparison_single_socket', 'clbg_comparison_single_socket_smt', 'clbg_comparison', 'clbg_comparison_smt']
 
 config_to_linestyle = {
     os.path.basename(config): linestyles[i % len(linestyles)]
@@ -349,15 +369,17 @@ for arch in archlist:
 
         #plt.xscale('log')
         #plt.xlim(0.001, 1000)
-        plt.title(f'CDF for all benchmarks avgs: {arch}\nSS to config ratio')
+        plt.title('CDF for all Benchmarks on {}'.format(arch_map[arch]))
         # plt.legend(bbox_to_anchor=(1.05, 1.0), loc="upper left", title='Config')
         plt.legend(loc='best', title='Config')
 
-        plt.xlabel('Performance ratio')
-        plt.ylabel('Fraction of benchmarks')
+        plt.xlabel('Speedup Relative to Single-Socket Without SMT Config')
+        plt.ylabel('Fraction of Benchmarks')
         if np.max(x) > 4:
             plt.xlim(right = 4)
-        plt.show()
+        plt.tight_layout()
+        plt.savefig(f'{plot_out_dir}/{arch}_smtnuma.pdf', bbox_inches="tight")
+        plt.clf()
     except:
         pass
 
