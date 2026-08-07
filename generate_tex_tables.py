@@ -140,10 +140,10 @@ def get_mod_time_as_date(fname):
     return date_str
 
 def write_mock_chop_dat(fname, vals, date):
-    header = '# Date\treal' + os.linesep
+    header = '# Date\treal\n'
     lines = [header]
     for val in vals:
-        lines.append('\t'.join([date, '{:.2f}'.format(val)]) + os.linesep)
+        lines.append('\t'.join([date, '{:.2f}\n'.format(val)]))
     with open(fname, 'w') as f:
         f.writelines(lines)
 
