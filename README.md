@@ -1,4 +1,4 @@
-# Porting and Benchmarking Chapel on Emerging RISC-V Hardware: an HPC Viability Study 
+# Porting and Benchmarking Chapel on Emerging RISC-V Hardware: an HPC Viability Study [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23780066.svg)](https://doi.org/10.5281/zenodo.23780066)
 
 The Chapel programming language recently added support for the RISC-V architecture. Here we discuss what changes were needed for Chapel to work on RISC-V as well as lessons learned from the porting process. We use some of Chapel's extensive benchmark suite to gain further insight into the suitability of the RISC-V architecture for future HPC use. We compare performance on SiFive P550 and Unmatched boards and a Sophon SG2042 with a variety of other recent HPC CPU platforms. Various portability and performance anomalies arose on different architectures and will be discussed. While the RISC-V machines represent smaller preliminary offerings and not HPC-class hardware, these results still provide hope that RISC-V hardware can become viable for HPC in the near future. 
 
