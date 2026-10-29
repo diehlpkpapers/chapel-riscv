@@ -61,7 +61,7 @@ benchmark_map = {
     'regexdnaredux-submitted': 'DNA Regex Redux',
     'revcomp3-submitted': 'Reverse Complement (3)',
     'revcomp5-submitted': 'Reverse Complement (5)',
-    'revcomp8-submitted': 'Reverse Complement (8)',
+    'revcomp8-submitted': 'Reverse Complement (9)', # Historical naming discrepancy between Chapel and the CLBG site.
     'spectralnorm2-40000': 'Spectral Norm (V2, Size 40000)',
     'spectralnorm2': 'Spectral Norm (V2, Size 500)',
     'spectralnorm-submitted-40000': 'Spectral Norm (Size 40000)',
@@ -78,8 +78,8 @@ config_map = {'clbg_comparison':'Two-socket',
 # The data loc structure and new loc structure assumes this is being run outside your data folder, not inside it.
 # This matters because of dir finding, since we don't explicitly list the architectures we just assume the directories are the architectures.
 # This is easily modified below
-data_loc = '.'
-new_data_loc = 'cleaned_data'
+data_loc = 'data_raw'
+new_data_loc = 'data'
 archlist = list(arch_map.keys())
 #archlist = [arch for arch in os.listdir(data_loc) if os.path.isdir(f'{data_loc}/{arch}') and arch != '.git' and arch != new_data_loc]
 # For now we only care about one llvm but again, this can be easily turned into a list in the following processing
